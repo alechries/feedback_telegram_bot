@@ -1,6 +1,9 @@
 # feedback_telegram_bot
  Functionality
- - d
+ - Anonymous replies to messages from bot users
+ - Ability to forward messages of any type (text, photo & other)
  
- Functionality
- - f
+ Modules
+ - aiogram
+ - sqlite3
+ - logging
