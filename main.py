@@ -5,15 +5,6 @@ from config import FEEDBACK_USER_ID
 from connection import dispatcher, bot, sqlConnect, sqlCursor
 
 
-@dispatcher.callback_query_handler(lambda query: query.data == "callback")
-async def callback_answer(callback_query: types.CallbackQuery):
-    await bot.answer_callback_query(
-        callback_query.id,
-        text=callback_query.message.from_user.first_name,
-        show_alert=True
-    )
-
-
 @dispatcher.message_handler(lambda message: True, content_types=['text', 'photo', 'sticker', 'video', 'audio', 'voice', 'location', 'animation', 'contact', 'document'])
 async def feedback_message(message: types.Message):
     log.info(f'{message.content_type} from {message.from_user.first_name}({message.from_user.id})')
