@@ -1,12 +1,11 @@
 import logging.config
 
 # CONNECTION
-TELEGRAM_TOKEN = 'token'
-DATABASE_PATH = 'users.db'
+TELEGRAM_TOKEN = '1302818156:AAFXShtjCrESs5j4HrsbXnRJgNRdvOTnN7w'
+DATABASE_PATH = 'chat.db'
 
 # USERS ID
 FEEDBACK_USER_ID = 389361183
-
 
 # LOGGING TEMPLATE
 logging.config.dictConfig({
