@@ -13,15 +13,18 @@ def database_try_create():
         message_id INT,
         message VARCHAR)''')
 
-
+    
 def database_query(query: str):
-    connect = sql.connect(DATABASE_PATH, check_same_thread=False)
-    with connect:
+    try:
+        connect = sql.connect(DATABASE_PATH, check_same_thread=False)
         cursor = connect.cursor()
         cursor.execute(query)
         result = cursor.fetchall()
-    if connect:
-        connect.commit()
-        connect.close()
-
+        if query.lstrip().upper().startswith("SELECT"):
+            connect.commit()
+    except sql.Error as e:
+        log.error(query, exc_info=e.args[0])
+    finally:
+        if connect is not None:
+            connect.close()
     return result
