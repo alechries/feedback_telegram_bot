@@ -15,12 +15,11 @@ async def main():
 async def welcome_message_event(message: types.Message):
     await message.answer(f"Hello, {message.from_user.first_name}!")
 
-
-@dispatcher.message_handler(lambda message: True, content_types=['text', 'photo', 'sticker', 'video', 'audio', 'voice', 'location', 'animation', 'contact', 'document'])
+    
+@dp.message_handler(content_types=types.ContentType.ANY)
 async def feedback_message_event(message: types.Message):
     await feedback_message(message)
 
 
 if __name__ == '__main__':
     asyncio.run(main())
-
