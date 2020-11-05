@@ -4,4 +4,4 @@
 
 Don't forget 
  - to install packages from 'requirements.txt'
- - to change the bot-token in 'config.py'  
+ - to change the bot-token & feedback user id in 'config.py'  
